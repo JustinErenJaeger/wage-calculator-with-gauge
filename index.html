@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/eca654a3e4.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <!-- THIS IS THE PAGE TITLE -->
+      <h1 class="calc-title">
+        <span class="border-bottom-1">WAGE</span
+        ><span class="border-bottom-2">CALCULATOR</span>
+      </h1>
+      <!-- THIS IS THE START OF THE INPUT FIELDS -->
+      <div class="input-field-holder holder-1">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-1"></i>
+        </div>
+        <input
+          type="number"
+          class="input-field"
+          id="startWage"
+          placeholder="Starting Wage"
+        />
+        <div class="indicator"><span>R</span></div>
+      </div>
+      <p class="info-box" id="box-1">
+        Insert the wage that you are currently earning.
+      </p>
+      <div class="input-field-holder holder-2">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-2"></i>
+        </div>
+        <input
+          type="number"
+          class="input-field"
+          id="percentageInc"
+          placeholder="Increase as %"
+        />
+        <div class="indicator"><span>%</span></div>
+      </div>
+      <p class="info-box" id="box-2">
+        Insert the your increase as a percentage.
+      </p>
+      <div class="input-field-holder holder-3">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-3"></i>
+        </div>
+        <input
+          type="number"
+          class="input-field"
+          id="moneyInc"
+          placeholder="Increase as R"
+        />
+        <div class="indicator"><span>R</span></div>
+      </div>
+      <p class="info-box" id="box-3">
+        Insert the your increase as a money amount.
+      </p>
+      <!-- THIS IS THE END OF THE INPUT FIELDS -->
+
+      <!-- THIS IS THE START OF THE GAUGE -->
+      <div class="gauge-holder">
+        <span id="textValue"></span>
+        <canvas id="wage-gauge"></canvas>
+      </div>
+      <!-- THIS IS THE END OF THE GAUGE -->
+
+      <!-- THIS IS THE START OF THE GENERATED VALUES -->
+      <div class="calculation-grid devider">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-4"></i>
+        </div>
+        <p class="description">New wage | Money amount:</p>
+        <div class="value-holder">
+          <p class="calc-values" id="newAmount">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-4">
+        This shows your current wage + your increase.
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-5"></i>
+        </div>
+        <p class="description">Inflation | annualised % change:</p>
+        <div class="value-holder">
+          <p class="calc-values" id="inflation">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-5">
+        The rate of increase in the price of goods and services in the economy.
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-6"></i>
+        </div>
+        <p class="description">Real wage increase | %:</p>
+        <div class="value-holder">
+          <p class="calc-values" id="realWageInc">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-6">
+        This shows your increase vs inflation rate. If negative, it represents
+        how much your increase is over the inflation rate.
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-7"></i>
+        </div>
+        <p class="description">The wage you need to keep up with inflation:</p>
+        <div class="value-holder">
+          <p class="calc-values" id="upKeepWage">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-7">
+        This shows what your wage should be to be balanced with inflation.
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-8"></i>
+        </div>
+        <p class="description">
+          The increase you need to keep up with inflation:
+        </p>
+        <div class="value-holder">
+          <p class="calc-values" id="upKeepInc">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-8">
+        This shows the increase that you need to be balanced with inflation.
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-9"></i>
+        </div>
+        <p class="description">Improvement factor of (5%) on inflation as R:</p>
+        <div class="value-holder">
+          <p class="calc-values" id="impFactorMoney">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-9">
+        This shows your current wage + inflation and adds an extra 5%. Shown as
+        money amount.
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-10"></i>
+        </div>
+        <p class="description">Improvement factor of (5%) on inflation as %:</p>
+        <div class="value-holder">
+          <p class="calc-values" id="impFactorPerc">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-10">
+        This shows your current wage + inflation and adds an extra 5%. Shown as
+        a percentage.
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-11"></i>
+        </div>
+        <p class="description">
+          Actual increase versus inflation improvement as R:
+        </p>
+        <div class="value-holder">
+          <p class="calc-values" id="actualIncMoney">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-11">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro,
+        voluptatem!
+      </p>
+      <div class="calculation-grid">
+        <div class="icon-holder">
+          <i class="fas fa-info-circle" data-for="box-12"></i>
+        </div>
+        <p class="description">
+          Actual increase versus inflation improvement as %:
+        </p>
+        <div class="value-holder">
+          <p class="calc-values" id="actualIncPerc">------------</p>
+        </div>
+      </div>
+      <p class="info-box" id="box-12">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Porro,
+        voluptatem!
+      </p>
+      <!-- THIS IS THE END OF THE GENERATED VALUES -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/bernii/gauge.js@1.3.7/dist/gauge.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
