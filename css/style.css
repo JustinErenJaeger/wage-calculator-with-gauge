@@ -14,7 +14,7 @@ p {
 
 .calculator {
   position: relative;
-  padding: 2rem 3rem;
+  padding: 1rem 3rem 2rem 3rem;
   margin: 4rem auto 0 auto;
   border-radius: 0.5rem;
   height: auto;
@@ -28,9 +28,7 @@ p {
 .calculator .calc-title {
   font-size: 2rem;
   z-index: 6;
-  position: absolute;
-  right: 3.5rem;
-  top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .calculator .calc-title span:nth-child(1) {
@@ -136,7 +134,7 @@ p {
 }
 
 .calculator .calculation-grid.devider {
-  margin-top: 7rem;
+  margin-top: 2rem;
 }
 
 .calculator .calculation-grid .description {
@@ -179,8 +177,7 @@ p {
 
 .info-box {
   bottom: 0;
-  /*   border-radius: 0.4rem; */
-  border-bottom: 1px solid #bf6415;
+  border-bottom: 1px solid rgba(191, 100, 21, 0.205);
   position: absolute;
   z-index: 1;
   width: auto;
@@ -201,8 +198,8 @@ p {
 /* THIS IS THE STYLES FOR THE GAUGE */
 .gauge-holder {
   position: absolute;
-  right: 4rem;
-  top: 7rem;
+  right: 2rem;
+  top: 4rem;
 }
 
 /* RESPONSIVE STYLES FOR CALCULATOR */
